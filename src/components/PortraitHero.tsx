@@ -147,8 +147,6 @@ export default function PortraitHero() {
     <section
       ref={sectionRef}
       id="work"
-      onMouseMove={handleMove}
-      onMouseLeave={handleLeave}
       className="relative flex flex-col items-center overflow-hidden px-6 pb-0 pt-10 text-center sm:px-10"
       style={{ background: "var(--background)" }}
     >
@@ -220,16 +218,13 @@ export default function PortraitHero() {
         className="relative mx-auto -mt-2 mb-0 w-full max-w-[520px] flex-1 self-stretch sm:max-w-[620px] lg:max-w-[720px]"
         style={{ perspective: 1200, display: "flex", alignItems: "flex-end", justifyContent: "center" }}
       >
-        <motion.div
+        <div
           ref={spotlightRef}
           className="pointer-events-none absolute left-1/2 top-[30%] -z-10 opacity-0"
           style={{
             width: "560px",
             height: "560px",
-            x: glowX,
-            y: glowY,
-            translateX: "-50%",
-            translateY: "-50%",
+            transform: "translate(-50%, -50%)",
             borderRadius: "50%",
             background: "rgba(var(--hairline-rgb), 0.18)",
             filter: "blur(120px)",
@@ -237,14 +232,7 @@ export default function PortraitHero() {
         />
 
         <div ref={floatRef} style={{ willChange: "transform", width: "100%" }}>
-          <motion.div
-            style={{
-              rotateX,
-              rotateY,
-              transformStyle: "preserve-3d",
-              willChange: "transform",
-            }}
-          >
+          <div style={{ transformStyle: "preserve-3d" }}>
             <div
               ref={entranceRef}
               style={{
@@ -264,7 +252,7 @@ export default function PortraitHero() {
                 />
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

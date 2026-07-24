@@ -1,7 +1,26 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { CardStack, type CardStackItem } from "@/components/ui/card-stack";
+
+function useCardSize() {
+  const [size, setSize] = useState({ width: 420, height: 280 });
+
+  useEffect(() => {
+    const update = () => {
+      const vw = window.innerWidth;
+      if (vw < 480) setSize({ width: Math.min(260, vw - 96), height: 200 });
+      else if (vw < 768) setSize({ width: 320, height: 220 });
+      else setSize({ width: 420, height: 280 });
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  return size;
+}
 
 const ITEMS: CardStackItem[] = [
   {
@@ -47,8 +66,10 @@ const ITEMS: CardStackItem[] = [
 ];
 
 export default function WorkStack() {
+  const { width: cardWidth, height: cardHeight } = useCardSize();
+
   return (
-    <section className="px-6 py-24 sm:px-10 lg:px-16 xl:px-[300px]">
+    <section className="overflow-hidden px-6 py-24 sm:px-10 lg:px-16 xl:px-[300px]">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -82,8 +103,8 @@ export default function WorkStack() {
         intervalMs={3200}
         pauseOnHover
         showDots
-        cardWidth={420}
-        cardHeight={280}
+        cardWidth={cardWidth}
+        cardHeight={cardHeight}
       />
     </section>
   );
