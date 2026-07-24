@@ -3,7 +3,6 @@ import PortraitHero from "./PortraitHero";
 import CaseStudies from "./CaseStudies";
 import KineticGridBanner from "./KineticGridBanner";
 import WorkStack from "./WorkStack";
-import Marquee from "./Marquee";
 
 export default function Homepage() {
   return (
@@ -15,8 +14,7 @@ export default function Homepage() {
         <CaseStudies />
         <KineticGridBanner />
         <WorkStack />
-        {/* ScrubHero ("Crafting Experiences") temporarily hidden */}
-        <Marquee />
+        {/* ScrubHero ("Crafting Experiences") and Marquee temporarily hidden */}
       </main>
       <footer
         id="contact"

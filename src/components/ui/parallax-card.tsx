@@ -4,15 +4,18 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+// Pixel-based (not yPercent) so the drift is a fixed, clearly visible
+// distance regardless of how tall a given card's layer happens to be.
 const LAYERS = [
-  { layer: "back", yPercent: 16 },
-  { layer: "front", yPercent: -8 },
+  { layer: "back", y: 90 },
+  { layer: "front", y: -50 },
 ];
 
 /**
  * Attaches a scroll-scrubbed parallax to [data-parallax-layer] children of
- * containerRef, so each layer drifts at a different speed as the card
- * passes through the viewport. Also scrubs a subtle scale/tilt-in on
+ * containerRef, so each layer drifts a different fixed distance (and
+ * direction) as the card passes through the viewport. Also scrubs a subtle
+ * scale/tilt-in on
  * tiltRef as it enters, tied directly to scroll position (not a one-time
  * entrance) so it reverses cleanly if the user scrolls back up.
  *
@@ -38,15 +41,16 @@ export function useCardParallax<
 
     gsap.registerPlugin(ScrollTrigger);
 
-    const tweens = LAYERS.map(({ layer, yPercent }) =>
+    const tweens = LAYERS.map(({ layer, y }) =>
       gsap.to(container.querySelectorAll(`[data-parallax-layer="${layer}"]`), {
-        yPercent,
+        y,
         ease: "none",
         scrollTrigger: {
           trigger: container,
           start: "top bottom",
           end: "bottom top",
           scrub: 0.5,
+          invalidateOnRefresh: true,
         },
       })
     );
@@ -64,12 +68,25 @@ export function useCardParallax<
               start: "top 95%",
               end: "top 55%",
               scrub: 0.6,
+              invalidateOnRefresh: true,
             },
           }
         )
       : null;
 
+    // Measurements taken at mount can be stale (fonts/images still settling
+    // layout), which freezes the scrubbed offset at whatever it computed
+    // initially instead of tracking real scroll position. Re-measure once
+    // the page has fully loaded, and again on resize.
+    const refresh = () => ScrollTrigger.refresh();
+    window.addEventListener("load", refresh);
+    window.addEventListener("resize", refresh);
+    const refreshTimeout = window.setTimeout(refresh, 300);
+
     return () => {
+      window.removeEventListener("load", refresh);
+      window.removeEventListener("resize", refresh);
+      window.clearTimeout(refreshTimeout);
       tweens.forEach((t) => {
         t.scrollTrigger?.kill();
         t.kill();

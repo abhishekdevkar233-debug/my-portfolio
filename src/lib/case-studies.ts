@@ -125,40 +125,6 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Application completion rates improved significantly, and in-person status inquiries dropped as citizens shifted to self-serve tracking.",
   },
   {
-    slug: "fintech-platform",
-    tag: "Fintech",
-    title: "Fintech Platform",
-    desc: "Trust-driven interfaces for financial products used by thousands daily.",
-    tint: "#FBBF24",
-    bg: "linear-gradient(160deg, rgba(251,191,36,0.10), var(--surface) 60%)",
-    accent: "rgba(251,191,36,0.16)",
-    role: "Product Designer",
-    timeline: "6 weeks",
-    tools: ["Figma", "Framer", "Amplitude"],
-    screen: {
-      heading: "Account Overview",
-      sub: "Clear balances, transfers, and spend insights at a glance.",
-    },
-    overview:
-      "A fintech app's core account screen was overloaded with promotional content, burying the balance and transaction data users opened the app to check.",
-    sections: [
-      {
-        heading: "The problem",
-        body: "Analytics showed users scrolling past three promo banners just to find their balance, and support was fielding repeated questions about where a specific transfer had gone.",
-      },
-      {
-        heading: "The approach",
-        body: "I restructured the home screen around a strict content hierarchy — balance and recent activity first, insights second, promotions last and collapsible — and redesigned the transfer flow with clear status states.",
-      },
-      {
-        heading: "Key decisions",
-        body: "Every state that touches money (pending, processing, failed) got its own distinct, unambiguous visual treatment so users never had to guess whether a transfer had gone through.",
-      },
-    ],
-    outcome:
-      "Time-to-balance dropped to under two seconds on average, and transfer-status support tickets fell after launch.",
-  },
-  {
     slug: "ai-copilot",
     tag: "AI Product",
     title: "Designing an AI copilot",

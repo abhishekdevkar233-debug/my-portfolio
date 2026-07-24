@@ -1,36 +1,18 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { useCardParallax } from "@/components/ui/parallax-card";
 import { CASE_STUDIES, type CaseStudy } from "@/lib/case-studies";
 
-const MotionLink = motion.create(Link);
-
 function CaseCard({ c, i }: { c: CaseStudy; i: number }) {
-  const { containerRef, tiltRef } = useCardParallax<HTMLAnchorElement, HTMLDivElement>(
-    i % 2 === 0 ? -1.5 : 1.5
-  );
-
   return (
-    <MotionLink
-      ref={containerRef}
+    <Link
       href={`/case-studies/${c.slug}`}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.08 }}
-      className="group relative block overflow-hidden rounded-[28px] border shadow-sm transition-shadow hover:shadow-2xl hover:shadow-black/40"
+      className="group relative block overflow-hidden rounded-[28px] border shadow-sm"
       style={{
         borderColor: "var(--border)",
         background: c.bg,
       }}
     >
-      <div
-        ref={tiltRef}
-        className="grid grid-cols-1 items-center gap-8 px-10 py-8 sm:px-12 sm:py-10 lg:grid-cols-[1.1fr_0.9fr] lg:px-16"
-      >
-      <div data-parallax-layer="front">
+      <div className="grid grid-cols-1 items-center gap-8 px-10 py-8 sm:px-12 sm:py-10 lg:grid-cols-[1.1fr_0.9fr] lg:px-16">
+      <div>
         <span
           className="text-[11px] font-medium uppercase tracking-[0.25em]"
           style={{ color: "var(--muted-foreground)" }}
@@ -50,7 +32,7 @@ function CaseCard({ c, i }: { c: CaseStudy; i: number }) {
           {c.desc}
         </p>
         <span
-          className="mt-8 inline-flex items-center gap-2 rounded-full border px-6 py-3 text-[13px] font-medium transition-colors"
+          className="mt-8 inline-flex items-center gap-2 rounded-full border px-6 py-3 text-[13px] font-medium"
           style={{
             borderColor: "var(--border-strong)",
             background: "rgba(var(--hairline-rgb), 0.04)",
@@ -58,57 +40,22 @@ function CaseCard({ c, i }: { c: CaseStudy; i: number }) {
           }}
         >
           View Case Study
-          <span className="transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </span>
+          <span>→</span>
         </span>
       </div>
 
       {/* phone mockup */}
-      <div className="relative flex justify-center lg:justify-end">
-        <div
-          data-parallax-layer="back"
-          className="relative -mb-10 w-[220px] overflow-hidden rounded-[24px] border shadow-xl transition-transform duration-500 group-hover:-translate-y-1 sm:w-[240px]"
-          style={{
-            borderColor: "var(--border)",
-            background: "var(--surface-2)",
-          }}
-        >
-          <div className="h-2.5 w-full" style={{ background: c.accent }} />
-          <div className="space-y-3 p-4">
-            <div
-              className="h-2 w-14 rounded-full"
-              style={{ background: c.tint, opacity: 0.7 }}
-            />
-            <div className="text-[11px] font-medium" style={{ color: "var(--foreground)" }}>
-              {c.screen.heading}
-            </div>
-            <div className="text-[9px] leading-relaxed" style={{ color: "var(--subtle-foreground)" }}>
-              {c.screen.sub}
-            </div>
-            <div className="space-y-2 pt-1">
-              {[0, 1, 2].map((row) => (
-                <div
-                  key={row}
-                  className="flex items-center justify-between rounded-lg px-2.5 py-2"
-                  style={{ background: "rgba(var(--hairline-rgb), 0.04)" }}
-                >
-                  <div
-                    className="h-1.5 w-16 rounded-full"
-                    style={{ background: "rgba(var(--hairline-rgb), 0.14)" }}
-                  />
-                  <div
-                    className="h-2 w-2 rounded-full"
-                    style={{ background: c.tint, opacity: 0.8 }}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+      <div className="relative flex justify-end">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/iphone-16-pro-mockup.png"
+          alt={`${c.title} shown on an iPhone 16 Pro`}
+          className="-mb-10 w-full max-w-[320px] select-none transition-transform duration-300 ease-out hover:-translate-y-2 hover:scale-105 sm:max-w-[400px] lg:max-w-[460px]"
+          draggable={false}
+        />
       </div>
       </div>
-    </MotionLink>
+    </Link>
   );
 }
 
@@ -118,13 +65,7 @@ export default function CaseStudies() {
       id="case-studies"
       className="px-6 py-24 sm:px-10 lg:px-16 xl:px-[300px]"
     >
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="mb-14"
-      >
+      <div className="mb-14">
         <h2
           className="text-[32px] sm:text-[40px]"
           style={{
@@ -139,7 +80,7 @@ export default function CaseStudies() {
           Stories which encapsulate my thought process &amp; display my
           prowess in interactive design.
         </p>
-      </motion.div>
+      </div>
 
       <div className="flex flex-col gap-6">
         {CASE_STUDIES.map((c, i) => (
