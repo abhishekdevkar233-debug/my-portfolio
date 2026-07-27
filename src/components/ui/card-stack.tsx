@@ -272,7 +272,7 @@ export function CardStack<T extends CardStackItem>({
                 <motion.div
                   key={item.id}
                   className={cn(
-                    "absolute bottom-0 rounded-2xl border-4 border-black/10 dark:border-white/10 overflow-hidden shadow-xl",
+                    "absolute bottom-0",
                     "will-change-transform select-none",
                     isActive
                       ? "cursor-grab active:cursor-grabbing"
@@ -316,11 +316,17 @@ export function CardStack<T extends CardStackItem>({
                   onClick={() => setActive(i)}
                   {...dragProps}
                 >
+                  {/*
+                    Rounded corners + overflow-hidden live here (not on the
+                    parent that carries the rotateX/rotateZ transform) because
+                    combining border-radius+overflow:hidden with a 3D-rotated
+                    element makes Chromium/WebKit drop the rounded clip on
+                    tilted corners.
+                  */}
                   <div
-                    className="h-full w-full"
+                    className="h-full w-full overflow-hidden rounded-2xl border-4 border-black/10 shadow-xl dark:border-white/10"
                     style={{
                       transform: `translateZ(${z}px)`,
-                      transformStyle: "preserve-3d",
                     }}
                   >
                     {renderCard ? (
@@ -395,20 +401,27 @@ function DefaultFanCard({ item }: { item: CardStackItem; active: boolean }) {
         )}
       </div>
 
-      {/* subtle gradient overlay at bottom for text readability */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+      {/* subtle gradient overlay for badge readability */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-transparent" />
 
-      {/* content */}
-      <div className="relative z-10 flex h-full flex-col justify-end p-5">
-        <div className="truncate text-lg font-semibold text-white">
-          {item.title}
+      {/* category badge */}
+      {item.tag ? (
+        <div className="relative z-10 p-3">
+          <span
+            className="inline-block rounded-full border px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-white"
+            style={{
+              borderColor: "rgba(255,255,255,0.32)",
+              background:
+                "linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.06))",
+              boxShadow:
+                "inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(0,0,0,0.15), 0 4px 14px rgba(0,0,0,0.35)",
+              textShadow: "0 1px 3px rgba(0,0,0,0.6)",
+            }}
+          >
+            {item.tag}
+          </span>
         </div>
-        {item.description ? (
-          <div className="mt-1 line-clamp-2 text-sm text-white/80">
-            {item.description}
-          </div>
-        ) : null}
-      </div>
+      ) : null}
     </div>
   );
 }

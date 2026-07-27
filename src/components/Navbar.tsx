@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 import { useReveal } from "@/lib/reveal-context";
@@ -25,8 +26,8 @@ export default function Navbar() {
           "0 8px 30px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.14), inset 0 0 0 1px rgba(255,255,255,0.03)",
       }}
     >
-      <a
-        href="#"
+      <Link
+        href="/"
         className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full font-[var(--font-instrument-serif)] text-base"
         style={{
           background:
@@ -36,7 +37,7 @@ export default function Navbar() {
         }}
       >
         AD
-      </a>
+      </Link>
 
       <span
         className="hidden h-5 w-px sm:block"
@@ -45,13 +46,13 @@ export default function Navbar() {
 
       <nav className="hidden items-center gap-6 sm:flex">
         {LINKS.map((link) => (
-          <a
+          <Link
             key={link}
-            href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
+            href={link === "Contact" ? "/contact" : `/#${link.toLowerCase().replace(/\s+/g, "-")}`}
             className="whitespace-nowrap text-[13px] font-medium tracking-wide text-[#A8A8A8] transition-colors hover:text-[#F5F5F5]"
           >
             {link}
-          </a>
+          </Link>
         ))}
       </nav>
 

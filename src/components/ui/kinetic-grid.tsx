@@ -158,7 +158,7 @@ export default function KineticGrid({
       const theme = isDark
         ? {
             default: {
-              bg: "#161618",
+              bg: "#0E0E0E",
               lineActive: { r: 74, g: 158, b: 255, a: 0.9 },
               nodeActive: { r: 74, g: 158, b: 255, a: 1.0 },
               glow: "74,158,255",

@@ -12,8 +12,8 @@ export default function Homepage() {
       <main>
         <PortraitHero />
         <CaseStudies />
-        <KineticGridBanner />
         <WorkStack />
+        <KineticGridBanner />
         {/* ScrubHero ("Crafting Experiences") and Marquee temporarily hidden */}
       </main>
       <footer

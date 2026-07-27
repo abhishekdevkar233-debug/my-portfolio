@@ -1,12 +1,11 @@
 .wrap {
-  --bg: #05050a;
-  --panel: #08080f;
-  --border: rgba(255, 255, 255, 0.09);
-  --border-soft: rgba(255, 255, 255, 0.06);
-  --node-bg: rgba(255, 255, 255, 0.045);
-  --node-border: rgba(255, 255, 255, 0.15);
-  --text: rgba(238, 238, 244, 0.94);
-  --muted: rgba(255, 255, 255, 0.36);
+  --bg: var(--background);
+  --panel: var(--surface);
+  --border-soft: rgba(var(--hairline-rgb), 0.06);
+  --node-bg: rgba(var(--hairline-rgb), 0.045);
+  --node-border: rgba(var(--hairline-rgb), 0.15);
+  --text: var(--foreground);
+  --muted: var(--muted-foreground);
   --accent: #7c8aff;
   --accent-soft: rgba(124, 138, 255, 0.35);
 
@@ -62,8 +61,8 @@
 }
 .resetBtn:hover {
   color: var(--text);
-  border-color: rgba(255, 255, 255, 0.22);
-  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(var(--hairline-rgb), 0.22);
+  background: rgba(var(--hairline-rgb), 0.03);
 }
 .resetBtn svg {
   width: 12px;

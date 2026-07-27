@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { CardStack, type CardStackItem } from "@/components/ui/card-stack";
 
@@ -25,43 +26,48 @@ function useCardSize() {
 const ITEMS: CardStackItem[] = [
   {
     id: 1,
-    title: "Enterprise Workspace",
-    description: "A unified SaaS workspace for distributed teams.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1200&auto=format&fit=crop",
-    href: "#case-studies",
+    title: "Corporate Branding",
+    description:
+      "Designing professional brand assets that communicate trust, clarity.",
+    imageSrc: "/highlights/corporate-branding.jpg",
+    href: "/graphics/corporate-branding",
+    tag: "Branding",
   },
   {
     id: 2,
-    title: "Payroll Management",
-    description: "Simplifying complex payroll workflows for HRMS teams.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1200&auto=format&fit=crop",
-    href: "#case-studies",
+    title: "Product Campaign",
+    description:
+      "Creating visually compelling campaigns that capture attention and drive engagement.",
+    imageSrc: "/highlights/product-campaign.jpg",
+    href: "/graphics/product-campaign",
+    tag: "Marketing Creatives",
   },
   {
     id: 3,
-    title: "Government Portal",
-    description: "Accessible digital services for citizens at scale.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
-    href: "#case-studies",
+    title: "Visual Advertising",
+    description:
+      "Showcasing products through clean, impactful, and conversion-focused visual design.",
+    imageSrc: "/highlights/visual-advertising.jpg",
+    href: "/graphics/visual-advertising",
+    tag: "Product Advertising",
   },
   {
     id: 4,
-    title: "Fintech Platform",
-    description: "Trust-driven interfaces for everyday financial products.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
-    href: "#case-studies",
+    title: "LinkedIn Thumbnail",
+    description:
+      "Scroll-stopping social media thumbnails and visual assets optimized to maximize reach.",
+    imageSrc: "/highlights/linkedin-thumbnail.jpg",
+    href: "/graphics/linkedin-thumbnail",
+    tag: "Thumbnails",
   },
   {
     id: 5,
-    title: "AI Copilot",
-    description: "An approachable interface for an AI-assisted workflow.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop",
-    href: "#case-studies",
+    title: "Logo Design",
+    description:
+      "Minimal, scalable, and distinctive logo marks tailored for modern businesses and digital-first brands.",
+    imageSrc: "/highlights/logo-design.jpg",
+    href: "/graphics/logo-design",
+    tag: "Logo Design",
   },
 ];
 
@@ -106,6 +112,34 @@ export default function WorkStack() {
         cardWidth={cardWidth}
         cardHeight={cardHeight}
       />
+
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
+        className="mt-14 flex justify-center"
+      >
+        <Link
+          href="/graphics"
+          className="group inline-flex items-center gap-2.5 rounded-full border px-7 py-3.5 text-[14px] font-medium transition-all duration-300"
+          style={{
+            borderColor: "rgba(255,255,255,0.16)",
+            background:
+              "linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.03))",
+            backdropFilter: "blur(16px) saturate(180%)",
+            WebkitBackdropFilter: "blur(16px) saturate(180%)",
+            color: "var(--foreground)",
+            boxShadow:
+              "0 10px 30px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.16)",
+          }}
+        >
+          Explore All
+          <span className="transition-transform duration-300 group-hover:translate-x-1">
+            →
+          </span>
+        </Link>
+      </motion.div>
     </section>
   );
 }
