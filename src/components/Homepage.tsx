@@ -1,8 +1,9 @@
 import Navbar from "./Navbar";
 import PortraitHero from "./PortraitHero";
 import CaseStudies from "./CaseStudies";
-import KineticGridBanner from "./KineticGridBanner";
 import WorkStack from "./WorkStack";
+import DesignerOS from "./designer-os/DesignerOS";
+import Footer from "./Footer";
 
 export default function Homepage() {
   return (
@@ -13,16 +14,12 @@ export default function Homepage() {
         <PortraitHero />
         <CaseStudies />
         <WorkStack />
-        <KineticGridBanner />
-        {/* ScrubHero ("Crafting Experiences") and Marquee temporarily hidden */}
+        <DesignerOS />
+        {/* KineticGridBanner ("What I work with"), ScrubHero ("Crafting Experiences"), and Marquee temporarily hidden */}
       </main>
-      <footer
-        id="contact"
-        className="px-6 py-10 text-center text-[12px] uppercase tracking-[0.25em] sm:px-10 lg:px-16"
-        style={{ color: "var(--footer-foreground)" }}
-      >
-        © {new Date().getFullYear()} Abhishek Devkar — Crafted with care
-      </footer>
+      <div id="contact">
+        <Footer />
+      </div>
     </div>
   );
 }

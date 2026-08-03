@@ -4,6 +4,7 @@ import { useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import { CATEGORIES, GRAPHICS_PROJECTS, type GraphicsProject } from "@/lib/graphics-projects";
 
 function ProjectCard({ project, index }: { project: GraphicsProject; index: number }) {
@@ -193,12 +194,7 @@ export default function GraphicsGallery() {
         )}
       </section>
 
-      <footer
-        className="px-6 py-10 text-center text-[12px] uppercase tracking-[0.25em] sm:px-10 lg:px-16"
-        style={{ color: "var(--footer-foreground)" }}
-      >
-        © {new Date().getFullYear()} Abhishek Devkar — Crafted with care
-      </footer>
+      <Footer />
     </div>
   );
 }

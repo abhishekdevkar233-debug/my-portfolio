@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { RevealContext } from "@/lib/reveal-context";
 
 const MONOLOGUE =
-  "I am processing the request to load Abhishek Devkar's portfolio, a UI/UX Designer with 3+ years of experience designing enterprise SaaS platforms, government digital services, HRMS systems, fintech products, and AI-powered user experiences. Specialized in Design Systems, Product Design, Interaction Design, UX Research, High-Fidelity Prototyping, and scalable interfaces. Reviewing case studies, validating design decisions, preparing prototypes, loading interactions, optimizing visual hierarchy, and warming up creative intelligence before granting access.";
+  "Loading Abhishek Devkar's portfolio — a UI/UX Designer with 3+ years crafting enterprise SaaS platforms, government digital services, HRMS systems, fintech products, and AI-powered experiences.";
 
 const LOADING_MESSAGES = [
   "Initializing Components...",

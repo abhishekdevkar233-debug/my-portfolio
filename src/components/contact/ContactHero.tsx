@@ -47,16 +47,6 @@ export default function ContactHero() {
         ))}
       </div>
 
-      <motion.span
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[12px] font-medium uppercase tracking-[0.2em]"
-        style={{ borderColor: "var(--border-strong)", color: "var(--muted-foreground)" }}
-      >
-        Let&apos;s work together
-      </motion.span>
-
       <motion.h1
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}

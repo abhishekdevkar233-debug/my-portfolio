@@ -2,10 +2,15 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import ThemeToggle from "./ThemeToggle";
 import { useReveal } from "@/lib/reveal-context";
 
-const LINKS = ["Work", "Case Studies", "About", "Experience", "Contact"];
+const LINKS = ["About", "Work", "Contact"];
+
+const LINK_HREFS: Record<string, string> = {
+  About: "/about-us",
+  Work: "/#work",
+  Contact: "/contact",
+};
 
 export default function Navbar() {
   const revealed = useReveal();
@@ -48,15 +53,13 @@ export default function Navbar() {
         {LINKS.map((link) => (
           <Link
             key={link}
-            href={link === "Contact" ? "/contact" : `/#${link.toLowerCase().replace(/\s+/g, "-")}`}
+            href={LINK_HREFS[link]}
             className="whitespace-nowrap text-[13px] font-medium tracking-wide text-[#A8A8A8] transition-colors hover:text-[#F5F5F5]"
           >
             {link}
           </Link>
         ))}
       </nav>
-
-      <ThemeToggle />
     </motion.div>
   );
 }

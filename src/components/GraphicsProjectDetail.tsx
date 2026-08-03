@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import type { GraphicsProject } from "@/lib/graphics-projects";
 import { GRAPHICS_PROJECTS } from "@/lib/graphics-projects";
 
@@ -149,12 +150,7 @@ export default function GraphicsProjectDetail({ project }: { project: GraphicsPr
         </motion.div>
       </main>
 
-      <footer
-        className="px-6 py-10 text-center text-[12px] uppercase tracking-[0.25em] sm:px-10 lg:px-16"
-        style={{ color: "var(--footer-foreground)" }}
-      >
-        © {new Date().getFullYear()} Abhishek Devkar — Crafted with care
-      </footer>
+      <Footer />
     </div>
   );
 }
