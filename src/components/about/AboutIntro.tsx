@@ -20,6 +20,11 @@ const SOCIALS: ProfileSocial[] = [
     url: "mailto:abhishekdevkar8032@gmail.com",
     iconSrc: "/logos/gmail.svg",
   },
+  {
+    label: "Resume",
+    url: "/resume.pdf",
+    iconSrc: "/logos/dropbox.svg",
+  },
 ];
 
 const DESCRIPTION =
