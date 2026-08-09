@@ -9,6 +9,7 @@ const LINKS = [
   { label: "Work", href: "/#work" },
   { label: "About", href: "/about-me" },
   { label: "Resume", href: "/resume.pdf", external: true },
+  { label: "Let's talk", href: "/contact" },
 ];
 
 export default function Navbar() {

@@ -41,12 +41,18 @@ export function DarkGrid({
           <p className="text-xs tracking-widest text-zinc-500">{eyebrow}</p>
         )}
         {heading && (
-          <h2 className="mt-3 text-4xl font-semibold tracking-tight text-zinc-50 sm:text-5xl">
+          <h2
+            className="mt-3 text-4xl font-semibold tracking-tight text-zinc-50 sm:text-5xl"
+            style={{ fontFamily: "var(--font-space-grotesk)", fontWeight: 400 }}
+          >
             {heading}
           </h2>
         )}
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div
+          className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          style={{ textAlign: "justify" }}
+        >
           {items.map(({ title, icon: Icon, desc, badge }) => (
             <Card
               key={title}

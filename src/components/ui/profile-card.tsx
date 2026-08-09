@@ -19,6 +19,7 @@ export interface ProfileSocial {
   url: string;
   /** Path to the brand SVG, e.g. "/logos/linkedin.svg". */
   iconSrc: string;
+  icon?: React.ReactNode;
 }
 
 export interface ProfileCardProps {

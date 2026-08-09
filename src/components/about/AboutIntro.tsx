@@ -27,7 +27,10 @@ const DESCRIPTION =
 
 export default function AboutIntro() {
   return (
-    <section className="px-6 py-24 sm:px-10 lg:px-16">
+    <section
+      className="px-6 py-24 sm:px-10 lg:px-16"
+      style={{ textAlign: "justify" }}
+    >
       <ProfileCard
         name="Abhishek Devkar"
         title="UI/UX Designer · Video Editor · Frontend Developer"
