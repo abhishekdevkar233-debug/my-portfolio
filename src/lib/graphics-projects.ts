@@ -13,10 +13,8 @@ export const CATEGORIES = [
   "All",
   "Branding",
   "Logo Design",
-  "Social Media",
   "Marketing Creatives",
   "Product Advertising",
-  "Print Design",
   "Thumbnails",
 ] as const;
 
