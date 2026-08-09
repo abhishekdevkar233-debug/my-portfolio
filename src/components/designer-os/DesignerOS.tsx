@@ -2,7 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { DESKTOP_TOOLS, DESKTOP_FOLDERS, PLAYLIST, getCaseStudyForFolder, type DesktopFolder } from "@/lib/designer-os-data";
+import {
+  DESKTOP_TOOLS,
+  DESKTOP_FOLDERS,
+  PLAYLIST,
+  getCaseStudyForFolder,
+  type DesktopFolder,
+} from "@/lib/designer-os-data";
 import DesktopToolIcon from "./DesktopTool";
 import DesktopFolderIcon from "./DesktopFolder";
 import MacMenuBar from "./MacMenuBar";
@@ -25,18 +31,26 @@ const PARTICLES = [
 export default function DesignerOS() {
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [activeCaseStudy, setActiveCaseStudy] = useState<CaseStudy | null>(null);
+  const [activeCaseStudy, setActiveCaseStudy] = useState<CaseStudy | null>(
+    null,
+  );
 
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
   const glowX = useSpring(mx, { stiffness: 60, damping: 20 });
   const glowY = useSpring(my, { stiffness: 60, damping: 20 });
-  const parallaxX = useSpring(useTransform(mx, (v) => v * 0.02), { stiffness: 40, damping: 20 });
-  const parallaxY = useSpring(useTransform(my, (v) => v * 0.02), { stiffness: 40, damping: 20 });
+  const parallaxX = useSpring(
+    useTransform(mx, (v) => v * 0.02),
+    { stiffness: 40, damping: 20 },
+  );
+  const parallaxY = useSpring(
+    useTransform(my, (v) => v * 0.02),
+    { stiffness: 40, damping: 20 },
+  );
 
   const [hoveredDockIndex, setHoveredDockIndex] = useState<number | null>(null);
   const [controlCenterOpen, setControlCenterOpen] = useState(false);
-  const [safariOpen, setSafariOpen] = useState(true);
+  const [safariOpen, setSafariOpen] = useState(false);
 
   const audioRef = useRef<HTMLAudioElement>(null);
   const [musicPlaying, setMusicPlaying] = useState(false);
@@ -118,7 +132,9 @@ export default function DesignerOS() {
         {/* wallpaper */}
         <div
           className="absolute inset-0 -z-20 bg-cover bg-center"
-          style={{ backgroundImage: "url('/wallpapers/dark-mode-wallpaper.svg')" }}
+          style={{
+            backgroundImage: "url('/wallpapers/dark-mode-wallpaper.svg')",
+          }}
         />
         <div
           className="absolute inset-0 -z-10"
@@ -143,7 +159,8 @@ export default function DesignerOS() {
             top: glowY,
             translateX: "-50%",
             translateY: "-50%",
-            background: "radial-gradient(circle, rgba(255,255,255,0.06), transparent 70%)",
+            background:
+              "radial-gradient(circle, rgba(255,255,255,0.06), transparent 70%)",
           }}
         />
 
@@ -161,7 +178,12 @@ export default function DesignerOS() {
               filter: "blur(1px)",
             }}
             animate={{ y: [0, -14, 0], opacity: [0.15, 0.6, 0.15] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: p.delay }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: p.delay,
+            }}
           />
         ))}
 
@@ -175,7 +197,9 @@ export default function DesignerOS() {
           onEnded={() => setMusicPlaying(false)}
         />
 
-        <MacMenuBar onToggleControlCenter={() => setControlCenterOpen((v) => !v)} />
+        <MacMenuBar
+          onToggleControlCenter={() => setControlCenterOpen((v) => !v)}
+        />
         {controlCenterOpen && (
           <ControlCenter
             onClose={() => setControlCenterOpen(false)}
@@ -193,7 +217,11 @@ export default function DesignerOS() {
         {/* desktop icons */}
         <div className="absolute left-3 top-12 flex flex-col gap-1 sm:left-6 sm:top-14">
           {DESKTOP_FOLDERS.map((folder) => (
-            <DesktopFolderIcon key={folder.id} folder={folder} onOpen={handleOpenFolder} />
+            <DesktopFolderIcon
+              key={folder.id}
+              folder={folder}
+              onOpen={handleOpenFolder}
+            />
           ))}
         </div>
 
@@ -206,7 +234,8 @@ export default function DesignerOS() {
               background: "rgba(30,30,32,0.5)",
               backdropFilter: "blur(24px) saturate(180%)",
               WebkitBackdropFilter: "blur(24px) saturate(180%)",
-              boxShadow: "0 10px 30px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08)",
+              boxShadow:
+                "0 10px 30px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08)",
               maxWidth: "100%",
               overflowX: "auto",
               scrollbarWidth: "none",
@@ -220,14 +249,19 @@ export default function DesignerOS() {
                 index={i}
                 hoveredIndex={hoveredDockIndex}
                 onHover={setHoveredDockIndex}
-                onOpen={tool.id === "safari" ? () => setSafariOpen(true) : undefined}
+                onOpen={
+                  tool.id === "safari" ? () => setSafariOpen(true) : undefined
+                }
               />
             ))}
           </div>
         </div>
       </motion.div>
 
-      <ProjectModal caseStudy={activeCaseStudy} onClose={() => setActiveCaseStudy(null)} />
+      <ProjectModal
+        caseStudy={activeCaseStudy}
+        onClose={() => setActiveCaseStudy(null)}
+      />
     </section>
   );
 }

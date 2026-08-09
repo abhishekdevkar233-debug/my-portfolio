@@ -33,7 +33,7 @@ export default function Navbar() {
     >
       <Link
         href="/"
-        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full font-[var(--font-instrument-serif)] text-base"
+        className="hidden h-8 w-8 shrink-0 items-center justify-center rounded-full font-[var(--font-instrument-serif)] text-base sm:flex"
         style={{
           background:
             "linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.04))",
@@ -49,13 +49,13 @@ export default function Navbar() {
         style={{ background: "rgba(255,255,255,0.12)" }}
       />
 
-      <nav className="hidden items-center gap-6 sm:flex">
+      <nav className="flex items-center gap-4 sm:gap-6">
         {LINKS.map((link) => (
           <Link
             key={link.label}
             href={link.href}
             {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
-            className="whitespace-nowrap text-[13px] font-medium tracking-wide text-[#A8A8A8] transition-colors hover:text-[#F5F5F5]"
+            className="whitespace-nowrap text-[12px] font-medium tracking-wide text-[#A8A8A8] transition-colors hover:text-[#F5F5F5] sm:text-[13px]"
           >
             {link.label}
           </Link>
