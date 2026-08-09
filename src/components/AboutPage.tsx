@@ -6,7 +6,7 @@ import AboutIntro from "./about/AboutIntro";
 import AboutJourney from "./about/AboutJourney";
 import AboutTools from "./about/AboutTools";
 import AboutExpertise from "./about/AboutExpertise";
-import AboutCertifications from "./about/AboutCertifications";
+import Certifications from "./Certifications";
 
 export default function AboutPage() {
   return (
@@ -22,7 +22,7 @@ export default function AboutPage() {
         <AboutJourney />
         <AboutTools />
         <AboutExpertise />
-        <AboutCertifications />
+        <Certifications />
       </main>
 
       <Footer />

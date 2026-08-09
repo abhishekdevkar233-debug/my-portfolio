@@ -3,6 +3,8 @@ import PortraitHero from "./PortraitHero";
 import CaseStudies from "./CaseStudies";
 import WorkStack from "./WorkStack";
 import DesignerOS from "./designer-os/DesignerOS";
+import Certifications from "./Certifications";
+import CoverflowGallery from "./CoverflowGallery";
 import Footer from "./Footer";
 
 export default function Homepage() {
@@ -15,6 +17,8 @@ export default function Homepage() {
         <CaseStudies />
         <WorkStack />
         <DesignerOS />
+        <Certifications />
+        <CoverflowGallery />
         {/* KineticGridBanner ("What I work with"), ScrubHero ("Crafting Experiences"), and Marquee temporarily hidden */}
       </main>
       <div id="contact">
