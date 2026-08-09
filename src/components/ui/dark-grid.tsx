@@ -26,12 +26,17 @@ export interface DarkGridProps {
 /**
  * Dark bordered card grid with hover gradient wash and white corner squares.
  */
-export function DarkGrid({ items, eyebrow, heading, className }: DarkGridProps) {
+export function DarkGrid({
+  items,
+  eyebrow,
+  heading,
+  className,
+}: DarkGridProps) {
   if (!items || items.length === 0) return null;
 
   return (
     <div className={cn("w-full", className)}>
-      <div className="mx-auto max-w-6xl px-4 py-16">
+      <div className="px-6 py-24 sm:px-10 lg:px-16 xl:px-[300px]">
         {eyebrow && (
           <p className="text-xs tracking-widest text-zinc-500">{eyebrow}</p>
         )}

@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { RevealContext } from "@/lib/reveal-context";
 
 const MONOLOGUE =
-  "Loading Abhishek Devkar's portfolio — a UI/UX Designer with 3+ years crafting enterprise SaaS platforms, government digital services, HRMS systems, fintech products, and AI-powered experiences.";
+  "Loading Abhishek Devkar's portfolio — UI/UX Designer crafting digital products for 3+ years";
 
 const LOADING_MESSAGES = [
   "Initializing Components...",
@@ -219,7 +219,7 @@ export default function IntroAnimation({
         progressState,
         {
           value: 100,
-          duration: 1.75,
+          duration: 1.5,
           ease: "power1.inOut",
           onUpdate: () => {
             const pct = Math.round(progressState.value);
@@ -354,7 +354,7 @@ export default function IntroAnimation({
               className="opacity-0 intro-content flex flex-col items-center"
             >
               <div style={{ ...labelStyle, marginBottom: "22px" }}>
-                INTERNAL MONOLOGUE
+                LOADING...
               </div>
 
               <p

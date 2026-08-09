@@ -34,7 +34,13 @@ export const CERTIFICATES: Certificate[] = [
   },
 ];
 
-function CertificateCard({ cert, index }: { cert: Certificate; index: number }) {
+function CertificateCard({
+  cert,
+  index,
+}: {
+  cert: Certificate;
+  index: number;
+}) {
   return (
     <motion.a
       href={cert.href}
@@ -113,7 +119,7 @@ export default function Certifications() {
   return (
     <section
       id="certifications"
-      className="px-6 py-24 sm:px-10 lg:px-16 xl:px-[220px]"
+      className="px-6 py-24 sm:px-10 lg:px-16 xl:px-[300px]"
       style={{ background: "var(--background)" }}
     >
       <motion.div

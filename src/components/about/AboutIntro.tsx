@@ -28,17 +28,6 @@ const DESCRIPTION =
 export default function AboutIntro() {
   return (
     <section className="px-6 py-24 sm:px-10 lg:px-16">
-      <motion.p
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="mx-auto mb-12 max-w-5xl px-4 text-[12px] font-medium uppercase tracking-[0.2em]"
-        style={{ color: "var(--muted-foreground)" }}
-      >
-        About Me
-      </motion.p>
-
       <ProfileCard
         name="Abhishek Devkar"
         title="UI/UX Designer · Video Editor · Frontend Developer"

@@ -7,9 +7,8 @@ import { useReveal } from "@/lib/reveal-context";
 const LINKS = [
   { label: "Home", href: "/" },
   { label: "Work", href: "/#work" },
-  { label: "About", href: "/about-us" },
+  { label: "About", href: "/about-me" },
   { label: "Resume", href: "/resume.pdf", external: true },
-  { label: "Let's talk", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -22,9 +21,9 @@ export default function Navbar() {
       transition={{ duration: 0.7, ease: "easeOut", delay: 0.05 }}
       className="sticky top-6 z-40 mx-auto flex w-fit max-w-[92vw] items-center gap-6 rounded-full border px-3 py-2"
       style={{
-        borderColor: "rgba(255,255,255,0.14)",
+        borderColor: "rgba(255,255,255,0.16)",
         background:
-          "linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02))",
+          "linear-gradient(180deg, rgba(35,35,35,0.48), rgba(15,15,15,0.38))",
         backdropFilter: "blur(20px) saturate(180%)",
         WebkitBackdropFilter: "blur(20px) saturate(180%)",
         boxShadow:
@@ -54,9 +53,7 @@ export default function Navbar() {
           <Link
             key={link.label}
             href={link.href}
-            {...(link.external
-              ? { target: "_blank", rel: "noreferrer" }
-              : {})}
+            {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
             className="whitespace-nowrap text-[13px] font-medium tracking-wide text-[#A8A8A8] transition-colors hover:text-[#F5F5F5]"
           >
             {link.label}

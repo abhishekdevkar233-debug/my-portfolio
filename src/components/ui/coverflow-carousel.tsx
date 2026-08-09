@@ -156,7 +156,9 @@ export function CoverflowCarousel({
   const step = React.useCallback(
     (delta: number) => {
       const next = Math.round(targetRef.current) + delta;
-      targetRef.current = canLoop ? next : Math.max(0, Math.min(count - 1, next));
+      targetRef.current = canLoop
+        ? next
+        : Math.max(0, Math.min(count - 1, next));
       settle();
     },
     [canLoop, count, settle],

@@ -91,16 +91,6 @@ export default function CoverflowGallery() {
         >
           Gallery
         </p>
-        <h2
-          className="mt-3 text-[32px] sm:text-[40px]"
-          style={{
-            fontFamily: "var(--font-space-grotesk)",
-            fontWeight: 400,
-            color: "var(--foreground)",
-          }}
-        >
-          A closer look
-        </h2>
       </motion.div>
 
       <motion.div

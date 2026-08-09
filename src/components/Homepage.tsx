@@ -9,7 +9,10 @@ import Footer from "./Footer";
 
 export default function Homepage() {
   return (
-    <div className="relative min-h-screen" style={{ background: "var(--background)", color: "var(--foreground)" }}>
+    <div
+      className="relative min-h-screen"
+      style={{ background: "var(--background)", color: "var(--foreground)" }}
+    >
       <div className="bg-grid pointer-events-none absolute inset-0 -z-10" />
       <Navbar />
       <main>
@@ -17,7 +20,6 @@ export default function Homepage() {
         <CaseStudies />
         <WorkStack />
         <DesignerOS />
-        <Certifications />
         <CoverflowGallery />
         {/* KineticGridBanner ("What I work with"), ScrubHero ("Crafting Experiences"), and Marquee temporarily hidden */}
       </main>
