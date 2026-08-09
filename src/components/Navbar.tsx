@@ -4,13 +4,13 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useReveal } from "@/lib/reveal-context";
 
-const LINKS = ["About", "Work", "Contact"];
-
-const LINK_HREFS: Record<string, string> = {
-  About: "/about-us",
-  Work: "/#work",
-  Contact: "/contact",
-};
+const LINKS = [
+  { label: "Home", href: "/" },
+  { label: "Work", href: "/#work" },
+  { label: "About", href: "/about-us" },
+  { label: "Resume", href: "/resume.pdf", external: true },
+  { label: "Let's talk", href: "/contact" },
+];
 
 export default function Navbar() {
   const revealed = useReveal();
@@ -52,11 +52,14 @@ export default function Navbar() {
       <nav className="hidden items-center gap-6 sm:flex">
         {LINKS.map((link) => (
           <Link
-            key={link}
-            href={LINK_HREFS[link]}
+            key={link.label}
+            href={link.href}
+            {...(link.external
+              ? { target: "_blank", rel: "noreferrer" }
+              : {})}
             className="whitespace-nowrap text-[13px] font-medium tracking-wide text-[#A8A8A8] transition-colors hover:text-[#F5F5F5]"
           >
-            {link}
+            {link.label}
           </Link>
         ))}
       </nav>
