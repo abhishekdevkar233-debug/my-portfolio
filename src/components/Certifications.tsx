@@ -22,7 +22,7 @@ export const CERTIFICATES: Certificate[] = [
     title: "Google UX Design",
     issuer: "Google · Coursera",
     meta: "8 courses · Sep 2025",
-    href: "#",
+    href: "https://coursera.org/share/97f466172bae3ce137a95e9a27f238e7",
   },
   {
     src: "/certificates/figma-ui-ux-advanced.jpg",
@@ -30,7 +30,7 @@ export const CERTIFICATES: Certificate[] = [
     title: "Figma UI UX Design Advanced",
     issuer: "Udemy · Daniel Walter Scott",
     meta: "16 hours · Jul 2025",
-    href: "#",
+    href: "https://www.udemy.com/certificate/UC-22443744-93c1-4820-a62f-701afdff6b8d/",
   },
 ];
 
