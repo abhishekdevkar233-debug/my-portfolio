@@ -92,7 +92,7 @@ export default function IntroAnimation({
 
   useEffect(() => {
     const reducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
     const alreadyPlayed = sessionStorage.getItem(SESSION_KEY) === "true";
 
@@ -123,26 +123,40 @@ export default function IntroAnimation({
     const monologueFadeAt = readyAt + 0.5;
     const CHECKLIST_START = monologueFadeAt + 0.3;
     const CHECKLIST_END =
-      CHECKLIST_START + (CHECKLIST_ITEMS.length - 1) * CHECKLIST_STEP + CHECKLIST_ITEM_FADE;
+      CHECKLIST_START +
+      (CHECKLIST_ITEMS.length - 1) * CHECKLIST_STEP +
+      CHECKLIST_ITEM_FADE;
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
 
       // homeRef is animated exclusively by GSAP from here on; keep React's
       // rendered style out of the way so re-renders can't stomp mid-tween values
-      tl.set(homeRef.current, { opacity: 0, filter: "blur(16px)", y: 20, scale: 0.98 }, 0);
+      tl.set(
+        homeRef.current,
+        { opacity: 0, filter: "blur(16px)", y: 20, scale: 0.98 },
+        0,
+      );
 
       // 0.0s black screen -> 0.6s AI terminal boot header fades in
       tl.set(initRef.current, { opacity: 0 });
-      tl.to(initRef.current, { opacity: 1, duration: 0.3, ease: "power1.out" }, 0.6);
+      tl.to(
+        initRef.current,
+        { opacity: 1, duration: 0.3, ease: "power1.out" },
+        0.6,
+      );
 
       // 1.6s init header fades out, monologue fades in
-      tl.to(initRef.current, { opacity: 0, duration: 0.25, ease: "power1.in" }, 1.6);
+      tl.to(
+        initRef.current,
+        { opacity: 0, duration: 0.25, ease: "power1.in" },
+        1.6,
+      );
       tl.set(monologueLabelRef.current, { opacity: 0 }, 1.65);
       tl.to(
         monologueLabelRef.current,
         { opacity: 1, duration: 0.3, ease: "power1.out" },
-        1.65
+        1.65,
       );
 
       // cursor becomes visible as typing begins
@@ -150,11 +164,19 @@ export default function IntroAnimation({
 
       // Portfolio Ready confirmation under the paragraph, once typing is done
       tl.set(readyRef.current, { opacity: 0, y: 4 }, readyAt);
-      tl.to(readyRef.current, { opacity: 1, y: 0, duration: 0.25, ease: "power1.out" }, readyAt);
+      tl.to(
+        readyRef.current,
+        { opacity: 1, y: 0, duration: 0.25, ease: "power1.out" },
+        readyAt,
+      );
       tl.to(cursorRef.current, { opacity: 0, duration: 0.15 }, readyAt);
 
       // fade out the AI monologue entirely
-      tl.to(monologueLabelRef.current, { opacity: 0, duration: 0.3, ease: "power1.in" }, monologueFadeAt);
+      tl.to(
+        monologueLabelRef.current,
+        { opacity: 0, duration: 0.3, ease: "power1.in" },
+        monologueFadeAt,
+      );
 
       // AI checklist sequence: items fade in one after another
       tl.set(checklistRef.current, { opacity: 1 }, CHECKLIST_START);
@@ -163,8 +185,13 @@ export default function IntroAnimation({
         tl.fromTo(
           el,
           { opacity: 0, y: 6 },
-          { opacity: 1, y: 0, duration: CHECKLIST_ITEM_FADE, ease: "power1.out" },
-          CHECKLIST_START + i * CHECKLIST_STEP
+          {
+            opacity: 1,
+            y: 0,
+            duration: CHECKLIST_ITEM_FADE,
+            ease: "power1.out",
+          },
+          CHECKLIST_START + i * CHECKLIST_STEP,
         );
       });
 
@@ -173,7 +200,7 @@ export default function IntroAnimation({
       tl.to(
         checklistRef.current,
         { opacity: 0, duration: 0.3, ease: "power1.in" },
-        checklistFadeOut
+        checklistFadeOut,
       );
 
       // premium portfolio loading screen: progress bar + cycling messages
@@ -182,7 +209,7 @@ export default function IntroAnimation({
       tl.to(
         progressScreenRef.current,
         { opacity: 1, y: 0, duration: 0.35, ease: "power1.out" },
-        progressStart
+        progressStart,
       );
 
       const progressState = { value: 0 };
@@ -207,22 +234,27 @@ export default function IntroAnimation({
               progressState.value >= PROGRESS_STOPS[stopIndex] &&
               progressMessageRef.current
             ) {
-              const msg = LOADING_MESSAGES[stopIndex] ?? LOADING_MESSAGES[LOADING_MESSAGES.length - 1];
+              const msg =
+                LOADING_MESSAGES[stopIndex] ??
+                LOADING_MESSAGES[LOADING_MESSAGES.length - 1];
               gsap.to(progressMessageRef.current, {
                 opacity: 0,
-                duration: 0.12,
+                duration: 0.15,
                 onComplete: () => {
                   if (progressMessageRef.current) {
                     progressMessageRef.current.textContent = msg;
                   }
-                  gsap.to(progressMessageRef.current, { opacity: 1, duration: 0.15 });
+                  gsap.to(progressMessageRef.current, {
+                    opacity: 1,
+                    duration: 0.15,
+                  });
                 },
               });
               stopIndex += 1;
             }
           },
         },
-        progressTweenStart
+        progressTweenStart,
       );
 
       // progress complete, swap to green ready confirmation
@@ -236,14 +268,18 @@ export default function IntroAnimation({
           }
         },
         undefined,
-        progressDone
+        progressDone,
       );
 
       // pause ~0.5s, then begin the cinematic reveal
       const revealAt = progressDone + 0.5;
       tl.call(() => setRevealed(true), undefined, revealAt);
 
-      tl.to(rootRef.current, { opacity: 0, duration: 1, ease: "power2.inOut" }, revealAt);
+      tl.to(
+        rootRef.current,
+        { opacity: 0, duration: 1, ease: "power2.inOut" },
+        revealAt,
+      );
       tl.to(
         homeRef.current,
         {
@@ -254,7 +290,7 @@ export default function IntroAnimation({
           duration: 1,
           ease: "power2.out",
         },
-        revealAt
+        revealAt,
       );
 
       tl.call(() => setShowIntro(false), undefined, revealAt + 1);
@@ -275,7 +311,8 @@ export default function IntroAnimation({
         const lastChar = MONOLOGUE[i - 1];
         let delay = CHAR_DELAY_MIN + Math.random() * CHAR_DELAY_RANGE;
         if (lastChar === ",") delay += COMMA_PAUSE;
-        else if (lastChar === "." || lastChar === "!" || lastChar === "?") delay += SENTENCE_PAUSE;
+        else if (lastChar === "." || lastChar === "!" || lastChar === "?")
+          delay += SENTENCE_PAUSE;
 
         setT(typeNext, delay);
       };
@@ -302,9 +339,14 @@ export default function IntroAnimation({
           style={{ background: "#050505" }}
         >
           <div className="w-full flex justify-center">
-            <div ref={initRef} className="opacity-0 absolute flex items-center gap-3">
+            <div
+              ref={initRef}
+              className="opacity-0 absolute flex items-center gap-3"
+            >
               <span className="init-square" aria-hidden="true" />
-              <span style={labelStyle}>INITIALIZING AI PORTFOLIO ENGINE...</span>
+              <span style={labelStyle}>
+                INITIALIZING AI PORTFOLIO ENGINE...
+              </span>
             </div>
 
             <div
@@ -330,7 +372,11 @@ export default function IntroAnimation({
                 </span>
               </p>
 
-              <div ref={readyRef} className="opacity-0" style={{ ...emphasisStyle, marginTop: "26px" }}>
+              <div
+                ref={readyRef}
+                className="opacity-0"
+                style={{ ...emphasisStyle, marginTop: "26px" }}
+              >
                 ✓ Portfolio Ready
               </div>
             </div>
@@ -412,7 +458,10 @@ export default function IntroAnimation({
         </div>
       )}
 
-      <div ref={homeRef} style={showIntro === true ? undefined : { opacity: 1 }}>
+      <div
+        ref={homeRef}
+        style={showIntro === true ? undefined : { opacity: 1 }}
+      >
         {children}
       </div>
     </RevealContext.Provider>

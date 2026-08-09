@@ -7,15 +7,39 @@ const EMAIL_METHOD = CONTACT_METHODS.find((m) => m.id === "email")!;
 
 const CONTACT_ROWS = [
   { label: "Email", value: EMAIL_METHOD.value, href: EMAIL_METHOD.href },
-  { label: "LinkedIn", value: "linkedin.com/in/abhishek-devkar", href: "#" },
-  { label: "Previous Work", value: "behance.net/abhishekdevkar", href: "#" },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/abhishek-devkar",
+    href: "https://www.linkedin.com/in/abhishek-devkar-557501231?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    target: "_blank",
+  },
+  {
+    label: "Previous Work",
+    value: "behance.net/abhishekdevkar",
+    href: "https://www.behance.net/abhishekdevkar1",
+    target: "_blank",
+  },
 ];
 
 function ConnectIcon() {
   return (
     <svg viewBox="0 0 64 64" className="h-16 w-16" fill="none">
-      <rect x="10" y="20" width="38" height="26" rx="4" stroke="var(--foreground)" strokeWidth="2" />
-      <path d="M10 24l19 14 19-14" stroke="var(--foreground)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <rect
+        x="10"
+        y="20"
+        width="38"
+        height="26"
+        rx="4"
+        stroke="var(--foreground)"
+        strokeWidth="2"
+      />
+      <path
+        d="M10 24l19 14 19-14"
+        stroke="var(--foreground)"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
       <path
         d="M48 40c6 0 9 4 9 9s-4 8-8 8"
         stroke="var(--foreground)"
@@ -30,7 +54,10 @@ function ConnectIcon() {
 
 export default function Footer() {
   return (
-    <footer className="px-6 py-24 sm:px-10 lg:px-16" style={{ color: "var(--foreground)" }}>
+    <footer
+      className="px-6 py-17 sm:px-10 lg:px-16"
+      style={{ color: "var(--foreground)" }}
+    >
       <div className="mx-auto flex max-w-lg flex-col items-center text-center">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -68,17 +95,28 @@ export default function Footer() {
             <motion.a
               key={row.label}
               href={row.href}
+              target={row.target}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 + i * 0.08 }}
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+                delay: 0.2 + i * 0.08,
+              }}
               className="flex items-center justify-between rounded-2xl px-6 py-4 text-left transition-colors hover:opacity-80"
               style={{ background: "var(--surface)" }}
             >
-              <span className="text-[14px]" style={{ color: "var(--muted-foreground)" }}>
+              <span
+                className="text-[14px]"
+                style={{ color: "var(--muted-foreground)" }}
+              >
                 {row.label}
               </span>
-              <span className="text-[14px]" style={{ color: "var(--foreground)" }}>
+              <span
+                className="text-[14px]"
+                style={{ color: "var(--foreground)" }}
+              >
                 {row.value}
               </span>
             </motion.a>
@@ -86,12 +124,15 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mt-16 border-t pt-6" style={{ borderColor: "var(--border)" }}>
+      <div
+        className="mt-16 border-t pt-6"
+        style={{ borderColor: "var(--border)" }}
+      >
         <p
           className="text-center text-[12px] uppercase tracking-[0.25em]"
           style={{ color: "var(--footer-foreground)" }}
         >
-          © {new Date().getFullYear()} Abhishek Devkar — Crafted with care
+          © {new Date().getFullYear()} Abhishek Devkar
         </p>
       </div>
     </footer>
