@@ -55,7 +55,7 @@ const EXPERTISE = [
 
 export default function AboutExpertise() {
   return (
-    <section className="px-6 py-22 sm:px-10 lg:px-16 xl:px-[160px]">
+    <section className="px-6 py-24 sm:px-10 lg:px-16 xl:px-[300px]">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

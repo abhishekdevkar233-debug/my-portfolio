@@ -10,7 +10,7 @@ const PARAGRAPHS = [
 
 export default function AboutIntro() {
   return (
-    <section className="px-6 py-24 sm:px-10 lg:px-16 xl:px-[160px]">
+    <section className="px-6 py-24 sm:px-10 lg:px-16 xl:px-[300px]">
       <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[1.2fr_0.8fr]">
         <div>
           <motion.p
