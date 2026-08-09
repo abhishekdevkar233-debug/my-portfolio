@@ -29,9 +29,8 @@ export default function AboutTools() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.04 }}
-            className="flex flex-col items-center gap-2.5 rounded-2xl border p-4"
+            className="flex flex-col items-center gap-2.5 rounded-2xl border border-transparent p-4 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl hover:border-primary/50"
             style={{
-              borderColor: "var(--border)",
               background: "var(--surface)",
             }}
           >

@@ -6,12 +6,7 @@ import gsap from "gsap";
 import { useReveal } from "@/lib/reveal-context";
 import KineticGrid from "@/components/ui/kinetic-grid";
 
-const ROLES = [
-  "UI/UX Designer",
-  "Graphics Designer",
-  "Video Editor",
-  "Frontend Developer",
-];
+const ROLES = ["UI/UX Designer", "Graphics Designer", "Video Editor"];
 
 const PARTICLES = [
   { top: "12%", left: "8%", size: 3, delay: 0 },
@@ -33,14 +28,14 @@ export default function PortraitHero() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [charCount, setCharCount] = useState(0);
   const [phase, setPhase] = useState<"typing" | "pausing" | "deleting">(
-    "typing"
+    "typing",
   );
 
   const typedText = ROLES[roleIndex].slice(0, charCount);
 
   useEffect(() => {
     const reducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     if (reducedMotion) {
@@ -82,7 +77,7 @@ export default function PortraitHero() {
     hasAnimated.current = true;
 
     const reducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     if (reducedMotion) {
@@ -108,25 +103,29 @@ export default function PortraitHero() {
         duration: 1.2,
         ease: "cubic-bezier(0.22, 1, 0.36, 1)",
       },
-      0
+      0,
     );
 
     tl.fromTo(
       spotlightRef.current,
       { opacity: 0 },
       { opacity: 1, duration: 1, ease: "power1.out" },
-      0.15
+      0.15,
     );
 
     tl.fromTo(
       rimRef.current,
       { opacity: 0.4 },
       { opacity: 1, duration: 0.6, ease: "power1.out" },
-      0.5
+      0.5,
     );
 
     if (floatRef.current) {
-      tl.call(() => floatRef.current?.classList.add("portrait-float"), undefined, 1.2);
+      tl.call(
+        () => floatRef.current?.classList.add("portrait-float"),
+        undefined,
+        1.2,
+      );
     }
   }, [revealed]);
 
@@ -193,10 +192,13 @@ export default function PortraitHero() {
         initial="hidden"
         animate={revealed ? "show" : "hidden"}
         className="mt-6 text-[34px] leading-[1.1] tracking-tight sm:text-[44px] lg:text-[52px]"
-        style={{ color: "var(--foreground)", fontFamily: "var(--font-space-grotesk)", fontWeight: 400 }}
+        style={{
+          color: "var(--foreground)",
+          fontFamily: "var(--font-space-grotesk)",
+          fontWeight: 400,
+        }}
       >
-        Hi, I&apos;m{" "}
-        <span style={{ fontWeight: 600 }}>Abhishek Devkar</span>
+        Hi, I&apos;m <span style={{ fontWeight: 600 }}>Abhishek Devkar</span>
       </motion.h1>
 
       <motion.p
@@ -207,7 +209,9 @@ export default function PortraitHero() {
         className="mt-2 flex items-center justify-center text-[26px] leading-[1.1] sm:text-[34px] lg:text-[40px]"
         style={{ color: "var(--foreground)", height: "1.2em" }}
       >
-        <span style={{ fontFamily: "var(--font-space-grotesk)", fontWeight: 500 }}>
+        <span
+          style={{ fontFamily: "var(--font-space-grotesk)", fontWeight: 500 }}
+        >
           {typedText}
         </span>
         <span className="role-cursor" aria-hidden="true" />
@@ -216,7 +220,12 @@ export default function PortraitHero() {
       {/* portrait */}
       <div
         className="relative mx-auto -mt-2 mb-0 w-full max-w-[520px] flex-1 self-stretch sm:max-w-[620px] lg:max-w-[720px]"
-        style={{ perspective: 1200, display: "flex", alignItems: "flex-end", justifyContent: "center" }}
+        style={{
+          perspective: 1200,
+          display: "flex",
+          alignItems: "flex-end",
+          justifyContent: "center",
+        }}
       >
         <div
           ref={spotlightRef}

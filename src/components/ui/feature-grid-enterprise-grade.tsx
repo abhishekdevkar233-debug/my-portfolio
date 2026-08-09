@@ -1,9 +1,17 @@
-import React from 'react';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import React from "react";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 // Define the icon type.
-type IconType = React.ElementType | React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+type IconType =
+  | React.ElementType
+  | React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
 
 // --- 📦 API (Props) Definition ---
 export interface FeatureItem {
@@ -46,7 +54,11 @@ export const FeatureGrid: React.FC<FeatureGridProps> = ({
     <section
       className={cn("py-16 sm:py-24 bg-background text-foreground", className)}
       role="region"
-      aria-label={typeof sectionTitle === "string" ? `Features: ${sectionTitle}` : "Product Features"}
+      aria-label={
+        typeof sectionTitle === "string"
+          ? `Features: ${sectionTitle}`
+          : "Product Features"
+      }
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
