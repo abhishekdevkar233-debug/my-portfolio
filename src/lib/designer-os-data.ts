@@ -6,9 +6,18 @@ export interface Song {
 }
 
 export const PLAYLIST: Song[] = [
-  { title: "The Best Songs of 2020", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
-  { title: "Late Night Focus", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
-  { title: "Golden Hour", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
+  {
+    title: "The Best Songs of 2020",
+    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+  },
+  {
+    title: "Late Night Focus",
+    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+  },
+  {
+    title: "Golden Hour",
+    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+  },
 ];
 
 export interface DesktopTool {
@@ -108,22 +117,6 @@ export const DESKTOP_TOOLS: DesktopTool[] = [
     level: "Advanced",
     description: "Version Control • Collaboration • Open Source",
     tint: "#A8A8A8",
-  },
-  {
-    id: "chrome",
-    name: "Chrome",
-    logo: "/logos/chrome.svg",
-    level: "Expert",
-    description: "DevTools • Testing • Everyday Browsing",
-    tint: "#4285F4",
-  },
-  {
-    id: "teams",
-    name: "Microsoft Teams",
-    logo: "/logos/teams.svg",
-    level: "Intermediate",
-    description: "Client Calls • Collaboration • Reviews",
-    tint: "#6264A7",
   },
 ];
 
