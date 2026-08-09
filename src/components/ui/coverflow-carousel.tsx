@@ -10,9 +10,6 @@ const useIsoLayoutEffect =
 
 export interface CoverflowSlide {
   src: string;
-  alt: string;
-  title?: string;
-  subtitle?: string;
   href?: string;
   meta?: { label: string; value: string }[];
 }

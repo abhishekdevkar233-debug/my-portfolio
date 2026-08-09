@@ -6,68 +6,28 @@ import {
   type CoverflowSlide,
 } from "@/components/ui/coverflow-carousel";
 
-// Placeholder imagery (Unsplash). Swap these for real project shots when
-// they're ready — the carousel only needs { src, alt, title, subtitle }.
+// Local gallery imagery from the public folder.
 const DUMMY_SLIDES: CoverflowSlide[] = [
   {
-    src: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=800&auto=format&fit=crop",
-    alt: "Placeholder — abstract circuitry pattern",
-    title: "Placeholder 01",
-    subtitle: "Sample slide",
+    src: "/insights/img1.jpg",
   },
   {
-    src: "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=800&auto=format&fit=crop",
-    alt: "Placeholder — mobile app on a desk",
-    title: "Placeholder 02",
-    subtitle: "Sample slide",
+    src: "/insights/img2.jpg",
   },
   {
-    src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
-    alt: "Placeholder — analytics dashboard on a laptop",
-    title: "Placeholder 03",
-    subtitle: "Sample slide",
+    src: "/insights/img3.jpg",
   },
   {
-    src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop",
-    alt: "Placeholder — code editor on a laptop screen",
-    title: "Placeholder 04",
-    subtitle: "Sample slide",
+    src: "/insights/img4.jpg",
   },
   {
-    src: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop",
-    alt: "Placeholder — soft gradient workspace",
-    title: "Placeholder 05",
-    subtitle: "Sample slide",
+    src: "/insights/img5.jpg",
   },
   {
-    src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
-    alt: "Placeholder — data charts on a monitor",
-    title: "Placeholder 06",
-    subtitle: "Sample slide",
+    src: "/insights/img6.jpg",
   },
   {
-    src: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop",
-    alt: "Placeholder — source code close-up",
-    title: "Placeholder 07",
-    subtitle: "Sample slide",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=800&auto=format&fit=crop",
-    alt: "Placeholder — developer desk setup",
-    title: "Placeholder 08",
-    subtitle: "Sample slide",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=800&auto=format&fit=crop",
-    alt: "Placeholder — colourful code on a display",
-    title: "Placeholder 09",
-    subtitle: "Sample slide",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=800&auto=format&fit=crop",
-    alt: "Placeholder — minimal laptop on a gradient background",
-    title: "Placeholder 10",
-    subtitle: "Sample slide",
+    src: "/insights/img7.jpg.jpg",
   },
 ];
 
