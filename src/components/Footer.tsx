@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { CONTACT_METHODS } from "@/lib/contact-data";
 
 const EMAIL_METHOD = CONTACT_METHODS.find((m) => m.id === "email")!;
@@ -53,6 +54,13 @@ function ConnectIcon() {
 }
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isContactPage = pathname === "/contact";
+
+  if (!isContactPage) {
+    return null;
+  }
+
   return (
     <footer
       className="px-6 py-17 sm:px-10 lg:px-16"
