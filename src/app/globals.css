@@ -23,6 +23,12 @@
   --footer-foreground: rgba(23, 23, 23, 0.55);
 
   --grid-line: rgba(0, 0, 0, 0.035);
+
+  /* shadcn-style tokens (card / primary) used by components/ui */
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --primary: #4f5bd5;
+  --primary-foreground: #ffffff;
 }
 
 @theme inline {
@@ -30,6 +36,11 @@
   --color-foreground: var(--foreground);
   --color-muted-foreground: var(--muted-foreground);
   --color-secondary: var(--secondary);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -55,6 +66,12 @@
   --footer-foreground: rgba(168, 168, 168, 0.6);
 
   --grid-line: rgba(255, 255, 255, 0.045);
+
+  /* shadcn-style tokens (card / primary) used by components/ui */
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --primary: #7c8aff;
+  --primary-foreground: #0a0a0a;
 }
 
 body {
