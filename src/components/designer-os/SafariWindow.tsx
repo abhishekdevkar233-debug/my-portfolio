@@ -55,14 +55,24 @@ function QuickAccessCard({ item }: { item: QuickAccessItem }) {
         className="flex h-11 w-11 items-center justify-center rounded-xl p-2.5"
         style={{
           background: item.bg,
-          boxShadow: hovered ? "0 8px 20px rgba(0,0,0,0.35)" : "0 2px 6px rgba(0,0,0,0.2)",
+          boxShadow: hovered
+            ? "0 8px 20px rgba(0,0,0,0.35)"
+            : "0 2px 6px rgba(0,0,0,0.2)",
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={item.logo} alt={item.label} className="h-full w-full object-contain" draggable={false} />
+        <img
+          src={item.logo}
+          alt={item.label}
+          className="h-full w-full object-contain"
+          draggable={false}
+        />
       </motion.button>
 
-      <span className="max-w-[64px] text-center text-[11px] leading-tight" style={{ color: "#C7C7CC" }}>
+      <span
+        className="max-w-[64px] text-center text-[11px] leading-tight"
+        style={{ color: "#C7C7CC" }}
+      >
         {item.label}
       </span>
     </div>
@@ -89,7 +99,7 @@ export default function SafariWindow({
       onClick: () =>
         window.open(
           "https://www.linkedin.com/in/abhishek-devkar-557501231?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-          "_blank"
+          "_blank",
         ),
     },
     {
@@ -97,7 +107,8 @@ export default function SafariWindow({
       label: "Behance",
       bg: "#0057ff",
       logo: "/logos/behance.svg",
-      onClick: () => window.open("https://www.behance.net/abhishekdevkar1", "_blank"),
+      onClick: () =>
+        window.open("https://www.behance.net/abhishekdevkar1", "_blank"),
     },
     {
       id: "resume",
@@ -112,19 +123,13 @@ export default function SafariWindow({
       },
     },
     {
-      id: "instagram",
-      label: "Instagram",
-      bg: "#111",
-      logo: "/logos/instagram.svg",
-      onClick: () => window.open("#", "_blank"),
-    },
-    {
       id: "mail",
       label: "Mail",
       bg: "#fff",
       logo: "/logos/gmail.svg",
       onClick: () => {
-        window.location.href = "mailto:abhishekdevkar8032@gmail.com?subject=Let's%20connect";
+        window.location.href =
+          "mailto:abhishekdevkar8032@gmail.com?subject=Let's%20connect";
       },
     },
     {
@@ -132,13 +137,6 @@ export default function SafariWindow({
       label: "GitHub",
       bg: "#111",
       logo: "/logos/github.svg",
-      onClick: () => window.open("#", "_blank"),
-    },
-    {
-      id: "blogs",
-      label: "Blogs",
-      bg: "#111",
-      logo: "/logos/hashnode.svg",
       onClick: () => window.open("#", "_blank"),
     },
     {
@@ -153,87 +151,94 @@ export default function SafariWindow({
   return (
     <>
       <div className="absolute inset-x-0 bottom-28 top-12 z-40 flex items-center justify-center px-10 sm:px-16">
-      <div
-        className="flex max-h-[78%] w-full max-w-[420px] flex-col overflow-hidden rounded-xl border sm:max-w-[480px]"
-        style={{
-          borderColor: "rgba(255,255,255,0.1)",
-          background: "#1c1c1e",
-          boxShadow: "0 30px 70px rgba(0,0,0,0.55)",
-        }}
-      >
-        {/* title bar */}
         <div
-          className="flex shrink-0 items-center gap-3 px-3 py-2"
+          className="flex max-h-[78%] w-full max-w-[420px] flex-col overflow-hidden rounded-xl border sm:max-w-[480px]"
           style={{
-            background: "rgba(40,40,42,0.95)",
-            borderBottom: "1px solid rgba(255,255,255,0.06)",
+            borderColor: "rgba(255,255,255,0.1)",
+            background: "#1c1c1e",
+            boxShadow: "0 30px 70px rgba(0,0,0,0.55)",
           }}
         >
-          <div className="group flex items-center gap-1.5">
-            <button
-              type="button"
-              onClick={onClose}
-              aria-label="Close"
-              className="flex h-3 w-3 items-center justify-center rounded-full text-[7px] font-bold leading-none text-[#4d0000]"
-              style={{ background: "#FF5F57" }}
-            >
-              <span className="opacity-0 transition-opacity group-hover:opacity-100">✕</span>
-            </button>
-            <button
-              type="button"
-              aria-label="Minimize"
-              className="flex h-3 w-3 items-center justify-center rounded-full text-[7px] font-bold leading-none text-[#5c4600]"
-              style={{ background: "#FEBC2E" }}
-            >
-              <span className="opacity-0 transition-opacity group-hover:opacity-100">−</span>
-            </button>
-            <button
-              type="button"
-              aria-label="Zoom"
-              className="flex h-3 w-3 items-center justify-center rounded-full"
-              style={{ background: "#28C840" }}
-            >
-              <svg
-                viewBox="0 0 10 10"
-                className="h-[7px] w-[7px] opacity-0 transition-opacity group-hover:opacity-100"
-                fill="#003b00"
-              >
-                <path d="M1 5.5 5.5 1H2a1 1 0 0 0-1 1v3.5Z" />
-                <path d="M9 4.5 4.5 9H8a1 1 0 0 0 1-1V4.5Z" />
-              </svg>
-            </button>
-          </div>
-
+          {/* title bar */}
           <div
-            className="mx-auto flex w-full max-w-sm items-center justify-center gap-2 rounded-md px-3 py-1 text-[12px]"
-            style={{ background: "rgba(255,255,255,0.08)", color: "#8E8E93" }}
+            className="flex shrink-0 items-center gap-3 px-3 py-2"
+            style={{
+              background: "rgba(40,40,42,0.95)",
+              borderBottom: "1px solid rgba(255,255,255,0.06)",
+            }}
           >
-            Search or enter website name
+            <div className="group flex items-center gap-1.5">
+              <button
+                type="button"
+                onClick={onClose}
+                aria-label="Close"
+                className="flex h-3 w-3 items-center justify-center rounded-full text-[7px] font-bold leading-none text-[#4d0000]"
+                style={{ background: "#FF5F57" }}
+              >
+                <span className="opacity-0 transition-opacity group-hover:opacity-100">
+                  ✕
+                </span>
+              </button>
+              <button
+                type="button"
+                aria-label="Minimize"
+                className="flex h-3 w-3 items-center justify-center rounded-full text-[7px] font-bold leading-none text-[#5c4600]"
+                style={{ background: "#FEBC2E" }}
+              >
+                <span className="opacity-0 transition-opacity group-hover:opacity-100">
+                  −
+                </span>
+              </button>
+              <button
+                type="button"
+                aria-label="Zoom"
+                className="flex h-3 w-3 items-center justify-center rounded-full"
+                style={{ background: "#28C840" }}
+              >
+                <svg
+                  viewBox="0 0 10 10"
+                  className="h-[7px] w-[7px] opacity-0 transition-opacity group-hover:opacity-100"
+                  fill="#003b00"
+                >
+                  <path d="M1 5.5 5.5 1H2a1 1 0 0 0-1 1v3.5Z" />
+                  <path d="M9 4.5 4.5 9H8a1 1 0 0 0 1-1V4.5Z" />
+                </svg>
+              </button>
+            </div>
+
+            <div
+              className="mx-auto flex w-full max-w-sm items-center justify-center gap-2 rounded-md px-3 py-1 text-[12px]"
+              style={{ background: "rgba(255,255,255,0.08)", color: "#8E8E93" }}
+            >
+              Search or enter website name
+            </div>
+
+            <div className="w-10" />
           </div>
 
-          <div className="w-10" />
-        </div>
-
-        {/* start page content */}
-        <div className="min-h-0 flex-1 overflow-y-auto px-8 py-5 sm:px-12">
-          <div className="mx-auto max-w-lg">
-            <h3
-              className="text-[10px] font-semibold uppercase tracking-wide"
-              style={{ color: "#8E8E93" }}
-            >
-              Quick Access
-            </h3>
-            <div className="mt-4 grid grid-cols-4 gap-x-4 gap-y-5">
-              {QUICK_ACCESS.map((item) => (
-                <QuickAccessCard key={item.id} item={item} />
-              ))}
+          {/* start page content */}
+          <div className="min-h-0 flex-1 overflow-y-auto px-8 py-5 sm:px-12">
+            <div className="mx-auto max-w-lg">
+              <h3
+                className="text-[10px] font-semibold uppercase tracking-wide"
+                style={{ color: "#8E8E93" }}
+              >
+                Quick Access
+              </h3>
+              <div className="mt-4 grid grid-cols-3 gap-x-4 gap-y-5">
+                {QUICK_ACCESS.map((item) => (
+                  <QuickAccessCard key={item.id} item={item} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
-      </div>
 
-      <LiveProjectsModal open={liveProjectsOpen} onClose={() => setLiveProjectsOpen(false)} />
+      <LiveProjectsModal
+        open={liveProjectsOpen}
+        onClose={() => setLiveProjectsOpen(false)}
+      />
     </>
   );
 }
