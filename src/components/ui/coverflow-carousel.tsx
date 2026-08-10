@@ -31,6 +31,9 @@ export interface CoverflowCarouselProps {
   /** Space between cards, as a fraction of card width. */
   gap?: number;
   loop?: boolean;
+  autoAdvance?: boolean;
+  intervalMs?: number;
+  pauseOnHover?: boolean;
   showCaption?: boolean;
   showPagination?: boolean;
   showNavigation?: boolean;
@@ -50,6 +53,9 @@ export function CoverflowCarousel({
   cardWidth = "clamp(148px, 22vw, 260px)",
   gap = 0.05,
   loop = true,
+  autoAdvance = false,
+  intervalMs = 1800,
+  pauseOnHover = true,
   showPagination = false,
   showNavigation = false,
   label = "Cover carousel",
@@ -79,6 +85,7 @@ export function CoverflowCarousel({
   } | null>(null);
 
   const [selected, setSelected] = React.useState(0);
+  const [hovering, setHovering] = React.useState(false);
 
   /** Nearest whole card, folded back into 0..count-1. */
   const indexAt = React.useCallback(
@@ -196,6 +203,19 @@ export function CoverflowCarousel({
     return () => observer.disconnect();
   }, [paint]);
 
+  React.useEffect(() => {
+    if (!autoAdvance || count <= 1 || (pauseOnHover && hovering)) return;
+
+    const id = window.setInterval(
+      () => {
+        step(1);
+      },
+      Math.max(700, intervalMs),
+    );
+
+    return () => window.clearInterval(id);
+  }, [autoAdvance, count, hovering, intervalMs, pauseOnHover, step]);
+
   React.useEffect(
     () => () => {
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
@@ -282,6 +302,8 @@ export function CoverflowCarousel({
         onPointerUp={endDrag}
         onPointerCancel={endDrag}
         onKeyDown={onKeyDown}
+        onMouseEnter={() => setHovering(true)}
+        onMouseLeave={() => setHovering(false)}
         // overflow-hidden is required, not cosmetic: neighbours are translated
         // well past the centre by design, so without clipping they push the
         // page into horizontal scroll on narrow viewports.

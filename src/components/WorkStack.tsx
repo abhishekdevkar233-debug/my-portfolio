@@ -106,7 +106,7 @@ export default function WorkStack() {
         items={ITEMS}
         initialIndex={0}
         autoAdvance
-        intervalMs={3200}
+        intervalMs={1600}
         pauseOnHover
         showDots
         cardWidth={cardWidth}

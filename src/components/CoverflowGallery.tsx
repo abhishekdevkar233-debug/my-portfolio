@@ -63,6 +63,8 @@ export default function CoverflowGallery() {
           slides={DUMMY_SLIDES}
           label="Gallery"
           cardWidth="clamp(180px, 26vw, 320px)"
+          autoAdvance
+          intervalMs={1600}
           showCaption
           showPagination
           showNavigation

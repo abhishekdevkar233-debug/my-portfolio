@@ -1,9 +1,12 @@
 "use client";
 
 import * as React from "react";
-import { motion, AnimatePresence, useReducedMotion, type PanInfo } from "framer-motion";
-import { SquareArrowOutUpRight } from "lucide-react";
-import Link from "next/link";
+import {
+  motion,
+  AnimatePresence,
+  useReducedMotion,
+  type PanInfo,
+} from "framer-motion";
 
 function cn(...classes: Array<string | undefined | null | false>) {
   return classes.filter(Boolean).join(" ");
@@ -191,8 +194,6 @@ export function CardStack<T extends CardStackItem>({
 
   if (!len) return null;
 
-  const activeItem = items[active]!;
-
   return (
     <div
       className={cn("w-full", className)}
@@ -344,7 +345,7 @@ export function CardStack<T extends CardStackItem>({
 
       {/* Dots navigation centered at bottom */}
       {showDots ? (
-        <div className="mt-6 flex items-center justify-center gap-3">
+        <div className="mt-6 flex items-center justify-center">
           <div className="flex items-center gap-2">
             {items.map((it, idx) => {
               const on = idx === active;
@@ -363,17 +364,6 @@ export function CardStack<T extends CardStackItem>({
               );
             })}
           </div>
-          {activeItem.href ? (
-            <Link
-              href={activeItem.href}
-              target="_blank"
-              rel="noreferrer"
-              className="text-muted-foreground hover:text-foreground transition"
-              aria-label="Open link"
-            >
-              <SquareArrowOutUpRight className="h-4 w-4" />
-            </Link>
-          ) : null}
         </div>
       ) : null}
     </div>

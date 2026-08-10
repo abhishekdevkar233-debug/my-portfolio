@@ -1,7 +1,7 @@
 "use client";
 
 import Navbar from "./Navbar";
-import Footer from "./Footer";
+import HillsFooter from "./HillsFooter";
 import AboutIntro from "./about/AboutIntro";
 import AboutJourney from "./about/AboutJourney";
 import AboutTools from "./about/AboutTools";
@@ -27,7 +27,9 @@ export default function AboutPage() {
         <CoverflowGallery />
       </main>
 
-      <Footer />
+      <div id="contact">
+        <HillsFooter />
+      </div>
     </div>
   );
 }
