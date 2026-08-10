@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { Feature } from "@/components/ui/feature-with-image-comparison";
+import PhoneMockupBasic from "@/components/ui/phone-mockups-1";
+import { CinematicHero } from "@/components/ui/cinematic-landing-hero";
 import type { CaseStudy } from "@/lib/case-studies";
 import { CASE_STUDIES } from "@/lib/case-studies";
 
@@ -203,6 +205,48 @@ export default function CaseStudyDetail({ study }: { study: CaseStudy }) {
               afterLabel="After"
             />
           </motion.div>
+        )}
+
+        {/* Phone mockups — second case study (payroll) is a mobile-first flow. */}
+        {study.slug === "payroll-management" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mt-20"
+          >
+            <h2
+              className="mb-10 text-[22px]"
+              style={{
+                fontFamily: "var(--font-space-grotesk)",
+                fontWeight: 500,
+                color: "var(--foreground)",
+              }}
+            >
+              On mobile
+            </h2>
+            <PhoneMockupBasic />
+          </motion.div>
+        )}
+
+        {/* Cinematic accessibility statement — third case study (government). */}
+        {study.slug === "government-portal" && (
+          <div className="mt-20">
+            <CinematicHero
+              eyebrow="Built for everyone"
+              title="Public services, designed for"
+              highlight="every citizen"
+              description="A government portal can't assume a digitally fluent user. Every screen was built and tested to WCAG AA, with plain language, large touch targets, and save-and-resume by default."
+              cardTitle="Accessibility was the brief, not a checklist"
+              cardBody="Forms were rewritten from legal language into short, plain-language steps and validated with citizens directly — so the portal works for people across every age and literacy level, not just those already comfortable online."
+              stats={[
+                { label: "Conformance", value: "WCAG AA" },
+                { label: "Reading level", value: "Plain" },
+                { label: "Save & resume", value: "Default" },
+              ]}
+            />
+          </div>
         )}
 
         {/* sections */}

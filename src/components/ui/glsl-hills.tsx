@@ -186,16 +186,26 @@ export function GLSLHills({
 
     // Size to the CONTAINER, not the window — this is embedded in a section,
     // so window dimensions would overflow it and never match on resize.
+    // Checked every frame rather than only via ResizeObserver: if the container
+    // measures 0 at mount (layout not settled yet) a one-shot resize would bail
+    // and the canvas would be stuck at its default 300x150 buffer.
     const resize = () => {
       const { clientWidth: w, clientHeight: h } = container;
       if (!w || !h) return;
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      const needW = Math.floor(w * ratio);
+      const needH = Math.floor(h * ratio);
+      if (canvas.width === needW && canvas.height === needH) return;
+
+      renderer.setPixelRatio(ratio);
       renderer.setSize(w, h, false);
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
     };
 
     const renderFrame = () => {
+      resize();
       uniforms.time.value += clock.getDelta() * speed;
       renderer.render(scene, camera);
     };
