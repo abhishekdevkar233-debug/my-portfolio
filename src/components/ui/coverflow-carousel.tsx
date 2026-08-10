@@ -300,22 +300,10 @@ export function CoverflowCarousel({
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={slide.src}
-                alt={slide.alt}
+                alt="gallary carousal"
                 draggable={false}
                 className="h-full w-full object-cover"
               />
-              {slide.title && (
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                  <p className="truncate text-[13px] font-semibold text-white">
-                    {slide.title}
-                  </p>
-                  {slide.subtitle && (
-                    <p className="truncate text-[11px] text-white/70">
-                      {slide.subtitle}
-                    </p>
-                  )}
-                </div>
-              )}
             </>
           );
 
@@ -403,27 +391,6 @@ export function CoverflowCarousel({
           </>
         )}
       </div>
-
-      {showCaption && active && (active.title || active.subtitle) && (
-        <div className="mt-6 text-center">
-          {active.title && (
-            <p
-              className="text-[15px] font-semibold"
-              style={{ color: "var(--foreground)" }}
-            >
-              {active.title}
-            </p>
-          )}
-          {active.subtitle && (
-            <p
-              className="mt-1 text-[13px]"
-              style={{ color: "var(--muted-foreground)" }}
-            >
-              {active.subtitle}
-            </p>
-          )}
-        </div>
-      )}
 
       {showPagination && (
         <div className="mt-5 flex items-center justify-center gap-2">
