@@ -17,9 +17,8 @@ export default function Homepage() {
       <main>
         <PortraitHero />
         <CaseStudies />
-        <WorkStack />
         <DesignerOS />
-        <CoverflowGallery />
+        <WorkStack />
         {/* KineticGridBanner ("What I work with"), ScrubHero ("Crafting Experiences"), and Marquee temporarily hidden */}
       </main>
       <div id="contact">

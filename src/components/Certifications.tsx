@@ -129,12 +129,6 @@ export default function Certifications() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="mb-12"
       >
-        <p
-          className="text-[12px] font-medium uppercase tracking-[0.2em]"
-          style={{ color: "var(--muted-foreground)" }}
-        >
-          Certifications
-        </p>
         <h2
           className="mt-3 text-[32px] sm:text-[40px]"
           style={{

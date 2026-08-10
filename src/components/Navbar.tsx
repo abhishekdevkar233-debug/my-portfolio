@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { useReveal } from "@/lib/reveal-context";
 
 const LINKS = [
-  { label: "Home", href: "/" },
   { label: "Work", href: "/#case-studies" },
   { label: "About", href: "/about-me" },
   { label: "Let's talk", href: "/contact" },
@@ -32,6 +31,7 @@ export default function Navbar() {
     >
       <Link
         href="/"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         className="hidden h-8 w-8 shrink-0 items-center justify-center rounded-full font-[var(--font-instrument-serif)] text-base sm:flex"
         style={{
           background:
