@@ -7,6 +7,7 @@ import AboutJourney from "./about/AboutJourney";
 import AboutTools from "./about/AboutTools";
 import AboutExpertise from "./about/AboutExpertise";
 import Certifications from "./Certifications";
+import CoverflowGallery from "./CoverflowGallery";
 
 export default function AboutPage() {
   return (
@@ -23,6 +24,7 @@ export default function AboutPage() {
         <AboutTools />
         <AboutExpertise />
         <Certifications />
+        <CoverflowGallery />
       </main>
 
       <Footer />
