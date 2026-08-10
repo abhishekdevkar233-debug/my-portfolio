@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { Feature } from "@/components/ui/feature-with-image-comparison";
 import type { CaseStudy } from "@/lib/case-studies";
 import { CASE_STUDIES } from "@/lib/case-studies";
 
@@ -180,6 +181,29 @@ export default function CaseStudyDetail({ study }: { study: CaseStudy }) {
             {study.overview}
           </p>
         </motion.div>
+
+        {/* Before/after comparison — only this case study has paired shots. */}
+        {study.slug === "enterprise-workspace" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mt-20"
+          >
+            <Feature
+              badge="Before / After"
+              title="From scattered tools to one workspace"
+              description="Drag the handle to compare the workspace before the redesign with the unified interface that replaced it."
+              beforeSrc="/case-studies/enterprise-before.jpg"
+              beforeAlt="The enterprise workspace before the redesign"
+              afterSrc="/case-studies/enterprise-after.jpg"
+              afterAlt="The unified enterprise workspace after the redesign"
+              beforeLabel="Before"
+              afterLabel="After"
+            />
+          </motion.div>
+        )}
 
         {/* sections */}
         <div className="mt-16 flex flex-col gap-14">
