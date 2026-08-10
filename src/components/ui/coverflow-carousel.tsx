@@ -319,9 +319,9 @@ export function CoverflowCarousel({
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={slide.src}
-                alt="gallary carousal"
+                alt="gallery carousel"
                 draggable={false}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-contain"
               />
             </>
           );
