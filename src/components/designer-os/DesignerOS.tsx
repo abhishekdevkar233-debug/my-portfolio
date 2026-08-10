@@ -123,7 +123,7 @@ export default function DesignerOS() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="isolate relative mx-auto aspect-[16/13] w-full max-w-[880px] overflow-hidden rounded-[24px] border sm:aspect-[16/10]"
+        className="isolate relative mx-auto aspect-[16/13] w-full max-w-[1100px] overflow-hidden rounded-[24px] border sm:aspect-[16/10]"
         style={{
           borderColor: "rgba(255,255,255,0.1)",
           boxShadow: "0 30px 80px rgba(0,0,0,0.45)",

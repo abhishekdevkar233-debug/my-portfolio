@@ -3,7 +3,6 @@ import PortraitHero from "./PortraitHero";
 import CaseStudies from "./CaseStudies";
 import WorkStack from "./WorkStack";
 import DesignerOS from "./designer-os/DesignerOS";
-import Certifications from "./Certifications";
 import CoverflowGallery from "./CoverflowGallery";
 import Footer from "./Footer";
 

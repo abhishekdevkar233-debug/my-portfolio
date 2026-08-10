@@ -50,7 +50,6 @@ export function CoverflowCarousel({
   cardWidth = "clamp(148px, 22vw, 260px)",
   gap = 0.05,
   loop = true,
-  showCaption = false,
   showPagination = false,
   showNavigation = false,
   label = "Cover carousel",
@@ -269,8 +268,6 @@ export function CoverflowCarousel({
   };
 
   if (count === 0) return null;
-
-  const active = slides[selected];
 
   return (
     <div className={cn("w-full", className)}>

@@ -6,9 +6,8 @@ import { useReveal } from "@/lib/reveal-context";
 
 const LINKS = [
   { label: "Home", href: "/" },
-  { label: "Work", href: "/#work" },
+  { label: "Work", href: "/#case-studies" },
   { label: "About", href: "/about-me" },
-  { label: "Resume", href: "/resume.pdf", external: true },
   { label: "Let's talk", href: "/contact" },
 ];
 
@@ -54,7 +53,6 @@ export default function Navbar() {
           <Link
             key={link.label}
             href={link.href}
-            {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
             className="whitespace-nowrap text-[12px] font-medium tracking-wide text-[#A8A8A8] transition-colors hover:text-[#F5F5F5] sm:text-[13px]"
           >
             {link.label}
