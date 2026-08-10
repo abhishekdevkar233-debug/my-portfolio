@@ -151,19 +151,6 @@ export default function DesignerOS() {
           <div className="absolute right-[8%] bottom-[15%] h-[240px] w-[240px] rounded-full bg-[#A78BFA]/10 blur-[100px]" />
         </motion.div>
 
-        {/* cursor glow */}
-        <motion.div
-          className="pointer-events-none absolute -z-10 h-[260px] w-[260px] rounded-full"
-          style={{
-            left: glowX,
-            top: glowY,
-            translateX: "-50%",
-            translateY: "-50%",
-            background:
-              "radial-gradient(circle, rgba(255,255,255,0.06), transparent 70%)",
-          }}
-        />
-
         {/* floating particles */}
         {PARTICLES.map((p, i) => (
           <motion.span
