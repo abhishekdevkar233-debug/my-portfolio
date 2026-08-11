@@ -158,14 +158,18 @@ export function GLSLHills({
     // the surrounding footer still renders instead of white-screening.
     let renderer: THREE.WebGLRenderer;
     try {
-      renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true });
+      renderer = new THREE.WebGLRenderer({
+        canvas,
+        antialias: false,
+        alpha: true,
+      });
     } catch {
       return;
     }
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, 1, 1, 10000);
-    const clock = new THREE.Clock();
+    const clock = new THREE.Timer();
 
     const uniforms = { time: { type: "f", value: 0 } };
     const geometry = new THREE.PlaneGeometry(
