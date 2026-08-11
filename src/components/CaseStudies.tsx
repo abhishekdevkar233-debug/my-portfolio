@@ -106,9 +106,9 @@ export default function CaseStudies() {
   return (
     <section
       id="case-studies"
-      className="px-6 py-24 sm:px-10 lg:px-16 xl:px-[300px]"
+      className="px-6 py-12 sm:px-10 sm:py-24 lg:px-16 xl:px-[300px]"
     >
-      <div className="mb-14">
+      <div className="mb-8 sm:mb-14">
         <h2
           className="text-[32px] sm:text-[40px]"
           style={{
@@ -130,7 +130,7 @@ export default function CaseStudies() {
 
       <div
         ref={container}
-        className="relative flex flex-col gap-16 pb-16 sm:pb-20"
+        className="relative flex flex-col gap-8 pb-8 sm:gap-16 sm:pb-20"
       >
         {CASE_STUDIES.map((c, i) => {
           const targetScale = Math.max(
@@ -155,7 +155,7 @@ export default function CaseStudies() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
-        className="mt-6 flex justify-center sm:mt-8 lg:mt-14"
+        className="mt-4 flex justify-center sm:mt-8 lg:mt-14"
       >
         <Link
           href="/case-studies"

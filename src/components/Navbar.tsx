@@ -32,7 +32,7 @@ export default function Navbar() {
       <Link
         href="/"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="hidden h-8 w-8 shrink-0 items-center justify-center rounded-full font-[var(--font-instrument-serif)] text-base sm:flex"
+        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full font-[var(--font-instrument-serif)] text-base"
         style={{
           background:
             "linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.04))",

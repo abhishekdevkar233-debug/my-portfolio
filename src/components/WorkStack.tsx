@@ -75,13 +75,13 @@ export default function WorkStack() {
   const { width: cardWidth, height: cardHeight } = useCardSize();
 
   return (
-    <section className="overflow-hidden px-6 py-24 sm:px-10 lg:px-16 xl:px-[300px]">
+    <section className="overflow-hidden px-6 py-12 sm:px-10 sm:py-24 lg:px-16 xl:px-[300px]">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="mb-14"
+        className="mb-4 sm:mb-8 lg:mb-10"
       >
         <h2
           className="text-[32px] sm:text-[40px]"
@@ -118,7 +118,7 @@ export default function WorkStack() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
-        className="mt-14 flex justify-center"
+        className="mt-4 flex justify-center sm:mt-8 lg:mt-14"
       >
         <Link
           href="/graphics"

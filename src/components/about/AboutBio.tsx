@@ -10,7 +10,7 @@ const PARAGRAPHS = [
 
 export default function AboutBio() {
   return (
-    <section className="px-6 py-24 sm:px-10 lg:px-16 xl:px-[300px]">
+    <section className="px-6 py-12 sm:px-10 sm:py-24 lg:px-16 xl:px-[300px]">
       <div className="mx-auto flex max-w-3xl flex-col gap-6">
         {PARAGRAPHS.map((text, i) => (
           <motion.p

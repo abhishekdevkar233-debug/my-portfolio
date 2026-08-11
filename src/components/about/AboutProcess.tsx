@@ -5,14 +5,17 @@ import { PROCESS_STEPS } from "@/lib/contact-data";
 
 export default function AboutProcess() {
   return (
-    <section className="px-6 py-24 sm:px-10 lg:px-16 xl:px-[160px]">
+    <section className="px-6 py-12 sm:px-10 sm:py-24 lg:px-16 xl:px-[160px]">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="text-[28px] sm:text-[34px]"
-        style={{ fontFamily: "var(--font-instrument-serif)", color: "var(--foreground)" }}
+        style={{
+          fontFamily: "var(--font-instrument-serif)",
+          color: "var(--foreground)",
+        }}
       >
         My design process
       </motion.h2>

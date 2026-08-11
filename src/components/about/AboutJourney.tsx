@@ -21,7 +21,7 @@ const JOURNEY = [
 
 export default function AboutJourney() {
   return (
-    <section className="px-6 py-24 sm:px-10 lg:px-16 xl:px-[300px]">
+    <section className="px-6 py-12 sm:px-10 sm:py-24 lg:px-16 xl:px-[300px]">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -146,7 +146,7 @@ export default function PortraitHero() {
     <section
       ref={sectionRef}
       id="work"
-      className="relative flex flex-col items-center overflow-hidden px-6 pb-0 pt-10 text-center sm:px-10"
+      className="relative flex flex-col items-center overflow-hidden px-6 pb-0 pt-6 text-center sm:px-10 sm:pt-10"
       style={{ background: "var(--background)" }}
     >
       {/* background atmosphere */}

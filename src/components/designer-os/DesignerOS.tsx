@@ -113,7 +113,7 @@ export default function DesignerOS() {
 
   return (
     <section
-      className="px-6 py-24 sm:px-10 lg:px-16 xl:px-[300px]"
+      className="px-6 py-12 sm:px-10 sm:py-24 lg:px-16 xl:px-[300px]"
       style={{ color: "var(--foreground)" }}
     >
       <motion.div
