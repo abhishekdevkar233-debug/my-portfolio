@@ -249,32 +249,6 @@ These features help search engines and social platforms better understand and pr
 
 ---
 
-## 🖼️ Screenshots
-
-### Home Page
-
-Add screenshots of the portfolio here:
-
-```markdown
-![Portfolio Home](./screenshots/home.png)
-```
-
-### Projects
-
-```markdown
-![Projects Section](./screenshots/projects.png)
-```
-
-### About
-
-```markdown
-![About Section](./screenshots/about.png)
-```
-
-> Screenshots can be stored inside a `/screenshots` directory in the repository.
-
----
-
 ## ⭐ Support
 
 If you found this project interesting, consider giving the repository a ⭐.
