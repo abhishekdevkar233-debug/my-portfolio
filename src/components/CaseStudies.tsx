@@ -120,7 +120,7 @@ export default function CaseStudies() {
           Selected work
         </h2>
         <p
-          className="mt-3 whitespace-nowrap text-[15px] leading-relaxed"
+          className="mt-3 md:whitespace-nowrap text-[15px] leading-relaxed"
           style={{ color: "var(--muted-foreground)" }}
         >
           Stories which encapsulate my thought process &amp; display my prowess
@@ -155,7 +155,7 @@ export default function CaseStudies() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
-        className="flex justify-center"
+        className="mt-6 flex justify-center sm:mt-8 lg:mt-14"
       >
         <Link
           href="/case-studies"
